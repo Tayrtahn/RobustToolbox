@@ -7,6 +7,7 @@ namespace Robust.Client.UserInterface.Controls;
 [Virtual]
 public class EntityPrototypeView : SpriteView
 {
+    private MetaDataSystem? _metaDataSystem;
     private string? _currentPrototype;
     private EntityUid? _ourEntity;
 
@@ -23,6 +24,7 @@ public class EntityPrototypeView : SpriteView
     public void SetPrototype(EntProtoId? entProto)
     {
         SpriteSystem ??= EntMan.System<SpriteSystem>();
+        _metaDataSystem ??= EntMan.System<MetaDataSystem>();
 
         if (entProto == _currentPrototype
             && EntMan.TryGetComponent(Entity?.Owner, out MetaDataComponent? meta)
@@ -39,6 +41,7 @@ public class EntityPrototypeView : SpriteView
         {
             _ourEntity = EntMan.Spawn(_currentPrototype);
             SpriteSystem.ForceUpdate(_ourEntity.Value);
+            _metaDataSystem.SetEntityPaused(_ourEntity.Value, true);
             SetEntity(_ourEntity);
         }
     }
