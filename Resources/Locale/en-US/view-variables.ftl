@@ -25,3 +25,8 @@ vv-sound-reference-distance = Reference Distance
 vv-sound-loop = Loop
 vv-sound-play-offset = Play Offset (s)
 vv-sound-variation = Pitch variation
+
+## LocId
+vv-locid-id = Id
+vv-locid-preview = Preview
+vv-locid-missing = MISSING

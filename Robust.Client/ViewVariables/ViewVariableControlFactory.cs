@@ -6,6 +6,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
+using Robust.Shared.Localization;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
@@ -53,6 +54,7 @@ internal sealed class ViewVariableControlFactory : IViewVariableControlFactory
         RegisterForType<NetEntity>(_ =>  new VVPropEditorNetEntity());
         RegisterForType<Color>(_ =>  new VVPropEditorColor());
         RegisterForType<TimeSpan>(_ =>  new VVPropEditorTimeSpan());
+        RegisterForType<LocId>(_ => new VVPropEditorLocId());
 
         RegisterWithCondition(type => type.IsEnum, _ => new VVPropEditorEnum());
         RegisterWithCondition(
