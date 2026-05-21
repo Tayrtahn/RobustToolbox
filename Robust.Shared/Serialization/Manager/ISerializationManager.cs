@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
+using Robust.Shared.IoC;
 using Robust.Shared.Reflection;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Mapping;
@@ -25,6 +26,8 @@ namespace Robust.Shared.Serialization.Manager
         void Shutdown();
 
         IReflectionManager ReflectionManager { get; }
+
+        IDependencyCollection DependencyCollection { get; }
 
         #region Validation
 
